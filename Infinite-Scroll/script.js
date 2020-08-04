@@ -16,13 +16,10 @@ function setAttributes(element, attributes) {
 
 //Check if all images loaded
 function imageLoaded() {
-	console.log('image loaded');
-	console.log(imagesLoaded);
 	imagesLoaded++;
 	if (imagesLoaded === totalImages) {
 		ready = true;
 		loader.hidden = true;
-		console.log('ready = ', ready);
 		count = 30;
 	}
 }
@@ -31,20 +28,17 @@ function imageLoaded() {
 function displayPhotos() {
 	imagesLoaded = 0;
 	totalImages = photosArray.length;
-	console.log('total images ' + totalImages);
+
 	//Run Function to each OBJ
 	photosArray.forEach((photo) => {
 		//create an <a> element</a>
 		const item = document.createElement('a');
-		// item.setAttribute('href', photo.links.html);
-		// item.setAttribute('target', '_blank');
+
 		setAttributes(item, { href: photo.links.html, target: '_blank' });
 
 		//create <img> for photo
 		const img = document.createElement('img');
-		// img.setAttribute('src', photo.urls.regular);
-		// img.setAttribute('alt', photo.alt_description);
-		// img.setAttribute('title', photo.alt_description);
+
 		setAttributes(img, {
 			src: photo.urls.regular,
 			alt: photo.alt_description,
@@ -72,7 +66,6 @@ async function getPhotos() {
 		photosArray = await response.json();
 		// Call Function to display Photos
 		displayPhotos();
-		console.log(photosArray);
 	} catch (error) {
 		//Catch Error Here
 	}
