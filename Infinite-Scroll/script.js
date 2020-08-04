@@ -23,6 +23,7 @@ function imageLoaded() {
 		ready = true;
 		loader.hidden = true;
 		console.log('ready = ', ready);
+		count = 30;
 	}
 }
 
@@ -60,7 +61,7 @@ function displayPhotos() {
 }
 
 //Unsplash API
-const count = 30;
+let count = 5;
 const apiKey = 'Q1IkrTNZOpRHhI-njq2BQoKh7peyKsrt7ycyhRQ46fM';
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
